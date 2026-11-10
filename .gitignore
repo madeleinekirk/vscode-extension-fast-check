@@ -1,0 +1,24 @@
+# Dependencies & build output
+node_modules/
+dist/
+out/
+*.tsbuildinfo
+.vscode-test/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Large or local-only data (the dataset lives outside this repo)
+yzz0229-VSCODE-DATA/
+*.zip
+work/
+logs/
+results/raw/
+
+# Secrets & OS clutter
+.env
+.env.*
+.DS_Store

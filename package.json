@@ -1,0 +1,17 @@
+{
+  "name": "vscode-extension-fast-check",
+  "version": "0.1.0",
+  "private": true,
+  "description": "COMP 6970 research project: property-based and race-condition testing of TypeScript VS Code extensions with fast-check.",
+  "license": "UNLICENSED",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "survey": "python3 task2/ts_survey.py"
+  },
+  "devDependencies": {
+    "fast-check": "^4.1.0",
+    "ts-morph": "^24.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}

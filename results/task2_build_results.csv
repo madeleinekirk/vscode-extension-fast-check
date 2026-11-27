@@ -1,0 +1,300 @@
+repo,build_command,runnable,error
+42Crunch-vscode-openapi,npm run compile,N,"src/audit/audit.ts(4,53): error TS2307: Cannot find module '@xliic/common/audit' or its corresponding type declarations."
+aaron-bond-better-comments,npm run compile,Y,
+aeschli-vscode-css-formatter,NODE_OPTIONS=--openssl-legacy-provider npm run compile,Y,
+akamud-vscode-theme-onedark,,N,no build script or tsconfig.json
+akamud-vscode-theme-onelight,,N,no build script or tsconfig.json
+alefragnani-vscode-bookmarks,npm run build,N,Use 'stats.errorDetails: true' resp. '--stats-error-details' to show it.[39m[22m
+alefragnani-vscode-project-manager,npm run compile,N,"src/commands/openSettings.ts(7,27): error TS2307: Cannot find module '../../vscode-project-manager-core/src/container' or its corresponding type declarations."
+AlexCovizzi-vscode-sqlite,NODE_OPTIONS=--openssl-legacy-provider npm run compile,Y,
+alexkrechik-VSCucumberAutoComplete,npm run compile,Y,
+almenon-arepl-vscode,npm run vscode:prepublish,Y,
+amir9480-vscode-laravel-extra-intellisense,npm run compile,Y,
+angular-vscode-ng-language-service,npx --yes pnpm@9 run compile,N,ERROR: An error occurred during the fetch of repository 'npm':
+ansible-vscode-ansible,npm run compile,N,"test/ui-test/contentCreatorUiTestNoCreatorTest.ts(332,40): error TS2345: Argument of type 'string | null' is not assignable to parameter of type 'string'."
+astral-sh-ruff-vscode,npm run compile,Y,
+atlassian-atlascode,npm run compile,Y,
+austin------code-gnu-global,npm run vscode:prepublish,Y,
+aws-aws-toolkit-vscode,,N,"lib/rules/no-await-on-vscode-msg.ts(15,22): error TS7016: Could not find a declaration file for module 'eslint'. '/Users/madeleinekirk/vscode-ext-work/repos/aws-aws-toolkit-vscode/node_modules/eslint/lib/api.js' implicitly has an 'any' type."
+azemoh-vscode-one-monokai,,N,no build script or tsconfig.json
+azure-azure-dev,,N,no package.json
+Azure-bicep,,N,no package.json
+Azure-vscode-azureterraform,npm run compile,Y,
+bash-lsp-bash-language-server,npx --yes pnpm@9 run compile,Y,
+BeardedBear-bearded-theme,npx --yes yarn@1 run build,Y,
+Binaryify-OneDark-Pro,npx --yes yarn@1 run build,Y,
+bmewburn-vscode-intelephense,npm run compile,Y,
+Borvik-vscode-postgres,npm run compile,Y,
+brapifra-vscode-phpserver,npx --yes yarn@1 run compile,Y,
+bungcip-better-toml,npm run vscode:prepublish,Y,
+burkeholland-simple-react-snippets,npm run vscode:prepublish,Y,
+castwide-vscode-solargraph,npm run compile,Y,
+certinia-debug-log-analyzer,npx --yes pnpm@9 run build,Y,
+Chakroun-Anas-turbo-console-log,npm run vscode:prepublish,Y,
+ChristianKohler-NpmIntellisense,npm run compile,Y,
+ChristianKohler-PathIntellisense,npm run compile,Y,
+chrmarti-vscode-regex,npx --yes yarn@1 run compile,Y,
+clangd-vscode-clangd,npm run compile,Y,
+clinyong-vscode-css-modules,npx --yes yarn@1 run compile,Y,
+CodeZombieCH-vscode-gitignore,npm run compile,Y,
+codingyu-laravel-goto-view,,N,npm error code ENOTFOUND
+codota-tabnine-vscode,npx --yes yarn@1 run build,Y,
+CoenraadS-Bracket-Pair-Colorizer-2,npm run vscode:prepublish,Y,
+cs50-extension-uninstaller.vsix,,N,npm error code EINVALIDPACKAGENAME
+cs50-presentation-mode.vsix,npm run compile,N,"src/test/suite/index.ts(15,3): error TS2349: This expression is not callable."
+cschlosser-doxdocgen,npx --yes yarn@1 run compile,Y,
+cweijan-vscode-database-client,npm run build,N,<s> [webpack.Progress] 58% [0] building 363/372 modules 9 active /Users/madeleinekirk/vscode-ext-work/repos/cweijan-vscode-database-client/node_modules/ioredis/built/errors/ClusterAllFailedError.js
+danielpinto8zz6-c-cpp-compile-run,npm run compile,Y,
+Dart-Code-Dart-Code,npm run build,Y,
+Dart-Code-Flutter,npm run compile,Y,
+deerawan-vscode-dash,npm run vscode:prepublish,Y,
+denoland-vscode_deno,npm run vscode:prepublish,Y,
+dongli0x00-python-preview,npx --yes yarn@1 run compile,Y,
+DonJayamanne-gitHistoryVSCode,NODE_OPTIONS=--openssl-legacy-provider npm run vscode:prepublish,Y,
+DonJayamanne-javaVSCode,npm run vscode:prepublish,N,"node_modules/@types/node/index.d.ts(20,1): error TS1084: Invalid 'reference' directive syntax."
+DonJayamanne-jquerysnippets,npm run vscode:prepublish,Y,
+DonJayamanne-vscode-python-manager,node_modules/.bin/tsc --noEmit -p .,Y,
+DotJoshJohnson-vscode-xml,npm run compile,Y,
+dotnet-interactive,,N,no package.json
+dotnet-vscode-csharp,npm run compile,Y,
+dotnet-vscode-dotnet-pack,npm run compile,Y,
+dotnet-vscode-dotnet-runtime,,N,no build script or tsconfig.json
+dsznajder-vscode-es7-javascript-react-snippets,npx --yes yarn@1 run compile,Y,
+dzhavat-bracket-pair-toggler,npm run compile,Y,
+ecmel-vscode-html-css,npm run compile,Y,
+editorconfig-editorconfig-vscode,npm run build,Y,
+EmersonGarrido-bracket-pair-dlw,npx --yes yarn@1 run compile,Y,
+espressif-vscode-esp-idf-extension,npx --yes yarn@1 run compile,Y,
+fabric8-analytics-fabric8-analytics-vscode-extension,,N,npm error code E401
+FallenMax-mithril-emmet,,N,error Error: certificate has expired
+felipecaputo-git-project-manager,npm run compile,Y,
+firefox-devtools-vscode-firefox-debug,npm run build,Y,
+firsttris-vscode-jest-runner,npm run build,Y,
+forcedotcom-salesforcedx-vscode,,N,Node.js v26.13.0
+forcedotcom-salesforcedx-vscode-slds,npm run compile,Y,
+formulahendry-vscode-auto-close-tag,npm run vscode:prepublish,Y,
+formulahendry-vscode-auto-rename-tag,,N,Node.js v26.13.0
+formulahendry-vscode-code-runner,npm run vscode:prepublish,Y,
+formulahendry-vscode-docker-explorer,npm run vscode:prepublish,Y,
+formulahendry-vscode-mysql,npm run compile,Y,
+formulahendry-vscode-terminal,npm run vscode:prepublish,N,"node_modules/vscode/vscode.d.ts(1,1): error TS2654: Exported external package typings file cannot contain tripleslash references. Please contact the package author to update the package definition."
+foxundermoon-vs-shell-format,npx --yes yarn@1 run compile,Y,
+franneck94-vscode-c-cpp-runner,npm run compile,N,webpack 5.112.2 compiled with [1m[31m1 error[39m[22m in 1188 ms
+fwcd-vscode-kotlin,npm run compile,Y,
+george-alisson-html-preview-vscode,NODE_OPTIONS=--openssl-legacy-provider npm run compile,Y,
+github-vscode-github-actions,npm run build,Y,
+gitkraken-vscode-gitlens,npm run build,N,}[39m
+gitpod-io-openvscode-server,npm run compile,N,Error: Cannot find module 'ternary-stream'
+glenn2223-vscode-live-sass-compiler,npm run vscode:prepublish,Y,
+glideapps-quicktype,npm run build,Y,
+glitchbl-laravel-create-view,npx --yes yarn@1 run compile,Y,
+golang-vscode-go,,N,no package.json
+graphql-graphiql,npx --yes yarn@1 run build,Y,
+HarshdeepGupta-live-html-preview,npm run vscode:prepublish,N,"node_modules/vscode/vscode.d.ts(1,1): error TS2654: Exported external package typings file cannot contain tripleslash references. Please contact the package author to update the package definition."
+hashicorp-vscode-terraform,,N,npm error code EBADENGINE
+hbenl-vscode-test-explorer,npm run build,Y,
+hediet-vscode-drawio,npx --yes yarn@1 run build,N,error Command failed with exit code 1.
+hellopao-view-in-browser,npm run vscode:prepublish,N,"node_modules/vscode/vscode.d.ts(1,1): error TS2654: Exported external package typings file cannot contain tripleslash references. Please contact the package author to update the package definition."
+hoovercj-vscode-power-mode,npm run vscode:prepublish,Y,
+Huachao-vscode-restclient,npm run vscode:prepublish,Y,
+humy2833-FTP-Simple,,N,no build script or tsconfig.json
+iCrawl-discord-vscode,npm run build,N,"If you still can't figure out the problem, please stop by https://eslint.org/chat/help to chat with the team."
+IHunte-Laravel-Blade-Wrapper,npm run compile,Y,
+ikappas-vscode-phpcs,,N,throw err;
+infinity1207-angular2-switcher,,N,npm error code CERT_HAS_EXPIRED
+ivalexa-vscode-angular2-files,npm run vscode:prepublish,Y,
+janisdd-vscode-edit-csv,npm run compile,Y,
+jchannon-csharpextensions,npm run vscode:prepublish,N,"node_modules/@types/node/index.d.ts(20,1): error TS1084: Invalid 'reference' directive syntax."
+jest-community-vscode-jest,npx --yes yarn@1 run compile,Y,
+jmrog-vscode-nuget-package-manager,npm run vscode:prepublish,N,"node_modules/@types/node/index.d.ts(20,1): error TS1084: Invalid 'reference' directive syntax."
+johnpapa-vscode-angular-snippets,,N,no build script or tsconfig.json
+johnpapa-vscode-peacock,npm run vscode:prepublish,Y,
+JohnstonCode-svn-scm,NODE_OPTIONS=--openssl-legacy-provider npx --yes yarn@1 run build,N,Error: error:0308010C:digital envelope routines::unsupported
+juanfranblanco-vscode-solidity,npm run compile,Y,
+julia-vscode-julia-vscode,npm run compile,Y,
+junstyle-vscode-php-cs-fixer,npm run build,Y,
+kamikillerto-vscode-colorize,npm run compile,Y,
+kasecato-vscode-docomment,npm run compile,Y,
+kasecato-vscode-intellij-idea-keybindings,npm run compile,N,[webpack-cli] [31mFailed to load '/Users/madeleinekirk/vscode-ext-work/repos/kasecato-vscode-intellij-idea-keybindings/webpack.config.js' config[39m
+kbrose-vsc-python-indent,npm run compile,N,sh: wasm-pack: command not found
+kisstkondoros-codemetrics,npm run build,Y,
+kisstkondoros-gutter-preview,npm run build,Y,
+kleber-swf-vscode-unity-code-snippets,npm run compile,Y,
+KnisterPeter-vscode-github,npx --yes yarn@1 run compile,Y,
+kokororin-vscode-phpfmt,npx --yes pnpm@9 run build,N,ExecaError: Command failed with ENOENT: php -v
+kondratyev-nv-vscode-python-test-adapter,npm run build,Y,
+kreativjos-csharpextensions,npx --yes yarn@1 run compile,Y,
+LeetCode-OpenSource-vscode-leetcode,npm run compile,Y,
+leizongmin-vscode-node-module-intellisense,npm run vscode:prepublish,N,"node_modules/@types/node/index.d.ts(35,1): error TS1084: Invalid 'reference' directive syntax."
+lishu-vscode-svg2,,N,npm error code ENOTFOUND
+liximomo-vscode-sftp,,N,error Error: certificate has expired
+Lonefy-vscode-JS-CSS-HTML-formatter,npm run vscode:prepublish,N,"node_modules/@types/node/index.d.ts(20,1): error TS1084: Invalid 'reference' directive syntax."
+lostintangent-gitdoc,npm run compile,Y,
+Marus-cortex-debug,npm run compile,Y,
+material-extensions-vscode-material-icon-theme,npm run compile,N,sh: bun: command not found
+mattbierner-vscode-color-info,NODE_OPTIONS=--openssl-legacy-provider npm run compile,Y,
+mhutchie-vscode-git-graph,npm run compile,N,"node_modules/@types/babel__traverse/index.d.ts(302,20): error TS1005: ']' expected."
+Microsoft-azure-pipelines-vscode,npm run compile,Y,
+Microsoft-azuredatastudio,,N,"warning Error running install script for optional dependency: ""/Users/madeleinekirk/vscode-ext-work/repos/Microsoft-azuredatastudio/build/node_modules/tree-sitter-typescript: Command failed."
+microsoft-playwright-vscode,npm run build,Y,
+microsoft-vscode-autopep8,npm run compile,Y,
+microsoft-vscode-azure-account,npm run build,Y,
+Microsoft-vscode-azureappservice,npm run build,N,"node_modules/@microsoft/vscode-azext-azureutils/index.d.ts(16,34): error TS2307: Cannot find module '@azure/ms-rest-azure-env' or its corresponding type declarations."
+Microsoft-vscode-azurearmtools,npm run build,N,"node_modules/@microsoft/vscode-azext-dev/index.d.ts(6,34): error TS2307: Cannot find module '@azure/ms-rest-azure-env' or its corresponding type declarations."
+Microsoft-vscode-azurecli,npm run compile,Y,
+microsoft-vscode-azurecontainerapps,npm run build,Y,
+Microsoft-vscode-azurefunctions,npm run build,N,"node_modules/@microsoft/vscode-azext-azureutils/index.d.ts(16,34): error TS2307: Cannot find module '@azure/ms-rest-azure-env' or its corresponding type declarations."
+Microsoft-vscode-azureresourcegroups,npm run build,Y,
+Microsoft-vscode-azurestaticwebapps,npm run build,N,"node_modules/@microsoft/vscode-azext-azureutils/index.d.ts(16,34): error TS2307: Cannot find module '@azure/ms-rest-azure-env' or its corresponding type declarations."
+microsoft-vscode-azurestorage,npm run build,Y,
+microsoft-vscode-azurevirtualmachines,npm run build,N,"node_modules/@microsoft/vscode-azext-azureutils/index.d.ts(16,34): error TS2307: Cannot find module '@azure/ms-rest-azure-env' or its corresponding type declarations."
+microsoft-vscode-black-formatter,npm run compile,Y,
+Microsoft-vscode-chrome-debug-core,npm run build,Y,
+microsoft-vscode-cmake-tools,npx --yes yarn@1 run compile,Y,
+microsoft-vscode-cosmosdb,npm run build,Y,
+Microsoft-vscode-cpptools,,N,no package.json
+microsoft-vscode-docker,npm run build,Y,
+Microsoft-vscode-edge-devtools,npm run build,Y,
+Microsoft-vscode-eslint,npm run compile,N,"client/src/settings.ts(9,41): error TS2307: Cannot find module './shared/settings' or its corresponding type declarations."
+microsoft-vscode-flake8,npm run compile,Y,
+microsoft-vscode-gradle,,N,no package.json
+microsoft-vscode-hexeditor,npm run compile,Y,
+Microsoft-vscode-htmlhint,,N,no package.json
+microsoft-vscode-isort,npm run compile,Y,
+Microsoft-vscode-java-debug,npm run compile,Y,
+Microsoft-vscode-java-dependency,npm run compile,Y,
+Microsoft-vscode-java-pack,npm run compile,Y,
+Microsoft-vscode-java-test,npm run compile,Y,
+Microsoft-vscode-jshint,npm run compile,Y,
+Microsoft-vscode-jupyter,node_modules/.bin/tsc --noEmit -p .,N,"src/interactive-window/editor-integration/codewatcher.unit.test.ts(49,64): error TS2345: Argument of type 'MockDocument' is not assignable to parameter of type 'TextDocument'."
+Microsoft-vscode-jupyter-cell-tags,npm run compile,Y,
+Microsoft-vscode-jupyter-slideshow,npm run compile,Y,
+microsoft-vscode-livepreview,npx --yes yarn@1 run compile,Y,
+microsoft-vscode-lombok,npm run compile,Y,
+Microsoft-vscode-makefile-tools,npx --yes yarn@1 run compile,Y,
+Microsoft-vscode-maven,npm run compile,Y,
+microsoft-vscode-mono-debug,npm run compile,N,make: *** [ONO_DEBUG_RELEASE] Error 1
+Microsoft-vscode-mssql,npx --yes yarn@1 run compile,Y,
+Microsoft-vscode-notebook-renderers,npm run compile,N,__TIMEOUT__ after 600s
+Microsoft-vscode-npm-scripts,NODE_OPTIONS=--openssl-legacy-provider npm run vscode:prepublish,Y,
+Microsoft-vscode-postgresql,node_modules/.bin/tsc --noEmit -p .,N,error TS2688: Cannot find type definition file for 'node'.
+Microsoft-vscode-pull-request-github,npx --yes yarn@1 run compile,N,[1mwebviews[39m[22m (webpack 5.94.0) compiled with [1m[31m1 error[39m[22m in 5085 ms
+Microsoft-vscode-pwa,,N,Error: Download failed: server returned code 400 body 'GatewayExceptionResponse'. URL: https://playwright.azureedge.net/builds/chromium/1097/chromium-mac-arm64.zip
+microsoft-vscode-pylint,npm run compile,Y,
+Microsoft-vscode-python,node_modules/.bin/tsc --noEmit -p .,Y,
+microsoft-vscode-python-debugger,npm run compile,Y,
+microsoft-vscode-react-native,npm run build,Y,
+Microsoft-vscode-spring-boot-dashboard,npm run compile,Y,
+Microsoft-vscode-spring-initializr,npm run compile,Y,
+Microsoft-vscode-sublime-keybindings,npm run compile,Y,
+microsoft-vscode-test-adapter-converter,npx --yes yarn@1 run build,Y,
+Microsoft-vscode-tslint,,N,no build script or tsconfig.json
+Microsoft-vscode-typescript-tslint-plugin,npx --yes yarn@1 run compile,N,"node_modules/@types/vscode/index.d.ts(8001,11): error TS2583: Cannot find name 'AsyncIterable'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2018' or later."
+mihai-vlc-path-autocomplete,npm run compile,Y,
+mike7515-code-beautifier,,N,npm error code ENOTFOUND
+mintlify-vscode-docs,,N,no build script or tsconfig.json
+misogi-vscode-ruby-rubocop,npx --yes yarn@1 run compile,Y,
+mitaki28-vscode-clang,npm run compile,Y,
+mjbvz-vscode-markdown-checkboxes,npm run vscode:prepublish,Y,
+mjbvz-vscode-markdown-emoji,npm run vscode:prepublish,Y,
+mjbvz-vscode-markdown-mermaid,npm run vscode:prepublish,Y,
+mohd-akram-vscode-html-format,npm run compile,Y,
+mongodb-js-vscode,npm run compile,N,"src/views/webview-app/connection-status.tsx(129,15): error TS2322: Type '{ children: Element; target: ""_blank""; rel: string; as: string; href: string; ""aria-label"": string; }' is not assignable to type 'IntrinsicAttributes & (((Omit<Omit<{}, ""as""> & { as: ComponentType<{ children?: ReactNode; }>; },"
+mrcrowl-vscode-easy-less,npx --yes yarn@1 run compile,Y,
+mrmlnc-vscode-scss,npm run compile,Y,
+ms-iot-vscode-ros,npm run compile,Y,
+mshr-h-vscode-verilog-hdl-support,npm run compile,Y,
+mtxr-vscode-sqltools,,N,error /Users/madeleinekirk/vscode-ext-work/repos/mtxr-vscode-sqltools/build-tools/node_modules/node-sass: Command failed.
+naoray-laravel-goto-components,NODE_OPTIONS=--openssl-legacy-provider npm run compile,Y,
+negokaz-vscode-live-server-preview,npm run compile,Y,
+neild3r-vscode-php-docblocker,npm run build,N,throw new Error(`esbuild: Failed to install correctly
+NeverCL-vscode-java-run,npm run vscode:prepublish,N,"node_modules/@types/node/index.d.ts(20,1): error TS1084: Invalid 'reference' directive syntax."
+NilsJPWerner-autoDocstring,npm run compile,Y,
+Njanderson-resmon,npm run compile,Y,
+njqdev-vscode-python-typehint,npm run compile,Y,
+nrwl-nx-console,node_modules/.bin/tsc --noEmit -p .,Y,
+oderwat-vscode-indent-rainbow,npm run compile,Y,
+onecentlin-laravel-blade-snippets-vscode,npm run vscode:prepublish,Y,
+oracle-javavscode,,N,no package.json
+peakchen90-vscode-open-in-default-browser,,N,error Error: certificate has expired
+pmneo-ts-importer,npm run vscode:prepublish,N,"src/Importer.ts(2,23): error TS2307: Cannot find module 'path' or its corresponding type declarations."
+PowerShell-vscode-powershell,,N,npm error code ETARGET
+pranaygp-vscode-css-peek,npx --yes yarn@1 run compile,Y,
+prettier-prettier-vscode,npx --yes yarn@1 run vscode:prepublish,Y,
+prisma-language-tools,npm run compile,N,Node.js v26.13.0
+qjebbs-vscode-plantuml,npm run compile,Y,
+qwtel-sqlite-viewer-vscode,,N,sh: zig: command not found
+redhat-developer-vscode-commons,NODE_OPTIONS=--openssl-legacy-provider npm run compile,Y,
+redhat-developer-vscode-java,npm run compile,Y,
+redhat-developer-vscode-xml,npm run compile,Y,
+redhat-developer-vscode-yaml,npx --yes yarn@1 run compile,Y,
+REditorSupport-vscode-R,npm run compile,Y,
+RiFi2k-format-html-in-php,npm run compile,Y,
+ritwickdey-vscode-live-sass-compiler,npm run vscode:prepublish,N,"src/SassCompileHelper.ts(1,31): error TS2307: Cannot find module 'sasslib/sass.node.js'."
+ritwickdey-vscode-live-server,npm run compile,Y,
+rubyide-vscode-ruby,npx --yes yarn@1 run build,N,lerna ERR! yarn run build exited 1 in 'web-tree-sitter-ruby'
+rust-lang-vscode-rust,npm run compile,Y,
+ryu1kn-vscode-partial-diff,NODE_OPTIONS=--openssl-legacy-provider npx --yes yarn@1 run vscode:prepublish,Y,
+serayuzgur-crates,npm run vscode:prepublish,Y,
+Sertion-vscode-gitblame,npm run build,Y,
+shanalikhan-code-settings-sync,npm run compile,N,ERROR in /Users/madeleinekirk/vscode-ext-work/repos/shanalikhan-code-settings-sync/src/service/github.oauth.service.ts
+shardulm94-vscode-trailingspaces,npm run compile,Y,
+shd101wyy-vscode-markdown-preview-enhanced,npx --yes yarn@1 run build,Y,
+Shopify-ruby-lsp,,N,no package.json
+shufo-vscode-blade-formatter,npx --yes yarn@1 run compile,N,Failed to load ./.env.
+sibiraj-s-vscode-scss-formatter,npm run compile,Y,
+SimonSiefke-vscode-svg-preview,,N,npm warn deprecated @lerna/validation-error@3.13.0: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+skyran1278-js-jsx-snippets,npm run build,Y,
+sleistner-vscode-fileutils,npm run vscode:prepublish,Y,
+soates-Auto-Import,npm run vscode:prepublish,N,"node_modules/@types/node/index.d.ts(20,1): error TS1084: Invalid 'reference' directive syntax."
+SonarSource-sonarlint-vscode,,N,npm error code E401
+sql-formatter-org-sql-formatter,npx --yes yarn@1 run build,Y,
+stef-levesque-vscode-shader,npm run compile,Y,
+streetsidesoftware-vscode-spell-checker,npm run build,Y,
+stringham-move-ts,npm run vscode:prepublish,N,"node_modules/@types/bluebird/index.d.ts(37,47): error TS1005: '?' expected."
+styled-components-vscode-styled-components,npm run compile,Y,
+stylelint-vscode-stylelint,npm run build,Y,
+SudoKillMe-vscode-extensions-open-in-browser,npx --yes yarn@1 run compile,Y,
+sveltejs-language-tools,npx --yes pnpm@9 run build,Y,
+tailwindlabs-tailwindcss-intellisense,,N,no build script or tsconfig.json
+tal7aouy-theme,npx --yes yarn@1 run build,Y,
+tamasfe-taplo,,N,no package.json
+TheColorRed-vscode-laravel-artisan,npm run vscode:prepublish,Y,
+TheRealSyler-vscode-sass-indented,npx --yes yarn@1 run build,Y,
+tht13-html-preview-vscode,NODE_OPTIONS=--openssl-legacy-provider npm run compile,Y,
+tht13-Python-vscode,npm run compile,N,Extension directory /Users/madeleinekirk/vscode-ext-work/repos/tht13-Python-vscode/out doesn't exist on disk.
+TobiahZ-unity-tools,npm run compile,Y,
+Tom-Bonnike-vscode-formatting-toggle,npm run vscode:prepublish,Y,
+tonybaloney-vscode-pets,npm run compile,Y,
+Tyriar-vscode-lorem-ipsum,,N,no build script or tsconfig.json
+Tyriar-vscode-sort-lines,npm run compile,Y,
+usernamehw-vscode-error-lens,npm run vscode:prepublish,Y,
+vadimcn-codelldb,,N,no build script or tsconfig.json
+vincaslt-vscode-highlight-matching-tag,npx --yes yarn@1 run compile,Y,
+vscode-django-vscode-django,npm run compile,Y,
+vscode-icons-vscode-icons,npm run compile,Y,
+vscode-kubernetes-tools-vscode-kubernetes-tools,npm run compile,Y,
+vscode-shellcheck-vscode-shellcheck,npm run build,Y,
+VSCodeVim-Vim,npx --yes yarn@1 run build,Y,
+vuejs-language-tools,npx --yes pnpm@9 run build,N,"extensions/vscode/src/config.ts(2,52): error TS2307: Cannot find module './generated-meta' or its corresponding type declarations."
+vuejs-vetur,npx --yes yarn@1 run compile,Y,
+vysker-vscode-php-formatter,npm run build,N,"node_modules/vscode/vscode.d.ts(1,22): error TS6053: File '/Users/madeleinekirk/vscode-ext-work/repos/vysker-vscode-php-formatter/node_modules/vscode/thenable.d.ts' not found."
+wakatime-vscode-wakatime,npm run compile,Y,
+wesbos-cobalt2-vscode,,N,no build script or tsconfig.json
+whenSunSet-vscode-chatgpt,npx --yes yarn@1 run build,Y,
+whizkydee-vscode-palenight-theme,,N,no build script or tsconfig.json
+wijmo-gc-excelviewer,,N,throw err;
+withastro-language-tools,npx --yes pnpm@9 run build,Y,
+wix-import-cost,npm run build,Y,
+wmaurer-vscode-change-case,npm run vscode:prepublish,N,"node_modules/@types/node/index.d.ts(20,1): error TS1084: Invalid 'reference' directive syntax."
+Wscats-browser-preview,npx --yes yarn@1 run compile,Y,
+Wscats-compile-hero,,N,npm error code E404
+xaverh-vscode-clang-format-provider,npm run vscode:prepublish,Y,
+xdebug-vscode-php-debug,npm run build,Y,
+yandeu-five-server-vscode,npm run compile,Y,
+yoavbls-pretty-ts-errors,npm run compile,Y,
+yzhang-gh-vscode-markdown,npm run build,N,sh: wasm-pack: command not found
+zabel-xyz-local-history,npm run compile,Y,
+Zignd-HTML-CSS-Class-Completion,NODE_OPTIONS=--openssl-legacy-provider npm run compile,Y,
+zobo-vscode-php-intellisense,npm run build,Y,
+zxh0-vscode-proto3,npm run vscode:prepublish,Y,

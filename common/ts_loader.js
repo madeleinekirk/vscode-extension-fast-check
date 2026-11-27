@@ -3,6 +3,7 @@
 const fs = require('fs');
 const Module = require('module');
 const ts = require('typescript');
+const fc = require('fast-check');
 
 // fake object for vscode and missing packages
 const stubs = new WeakSet();
@@ -70,11 +71,6 @@ require.extensions['.ts'] = require.extensions['.tsx'] = (module, filename) => {
   module._compile(filename === target ? js + extraCode : js, filename);
 };
 
-for (const name of ['suite', 'test', 'describe', 'it', 'before', 'after', 'beforeEach', 'afterEach',
-  'setup', 'teardown', 'window', 'document', 'acquireVsCodeApi']) {
-  if (!(name in global)) global[name] = stub(name);
-}
-for (const key of ['log', 'info', 'warn', 'error', 'debug']) console[key] = () => {};
 const exit = process.exit.bind(process);
 process.exit = (code) => { throw new Error(`process.exit(${code}) called`); };
 process.on('uncaughtException', () => {});
@@ -90,20 +86,19 @@ function parse(file) {
 function findFunctions(source) {
   const funcs = [];
   for (const s of source.statements) {
-    const exported = has(s, K.ExportKeyword);
     if (ts.isFunctionDeclaration(s) && s.name && s.body) {
-      funcs.push({ name: s.name.text, ref: s.name.text, node: s, exported });
+      funcs.push({ name: s.name.text, ref: s.name.text, node: s });
     } else if (ts.isVariableStatement(s)) {
       for (const d of s.declarationList.declarations) {
         if (ts.isIdentifier(d.name) && d.initializer && (ts.isArrowFunction(d.initializer) || ts.isFunctionExpression(d.initializer))) {
-          funcs.push({ name: d.name.text, ref: d.name.text, node: d.initializer, exported });
+          funcs.push({ name: d.name.text, ref: d.name.text, node: d.initializer });
         }
       }
     } else if (ts.isClassDeclaration(s) && s.name) {
       for (const m of s.members) {
         if (ts.isMethodDeclaration(m) && m.body && ts.isIdentifier(m.name) && !has(m, K.PrivateKeyword)) {
           funcs.push({ name: `${s.name.text}.${m.name.text}`, ref: s.name.text, method: m.name.text,
-            isStatic: has(m, K.StaticKeyword), node: m, exported });
+            isStatic: has(m, K.StaticKeyword), node: m });
         }
       }
     }
@@ -131,4 +126,64 @@ function getCallable(mod, f) {
   return { fn: self[f.method], self };
 }
 
-module.exports = { ts, K, has, stub, stubs, stubbedModules, parse, findFunctions, loadFile, getCallable, exit };
+// random inputs based on the parameter type
+function arb(t) {
+  if (!t) return fc.anything();
+  switch (t.kind) {
+    case K.StringKeyword: return fc.string();
+    case K.NumberKeyword: return fc.oneof(fc.integer(), fc.double());
+    case K.BooleanKeyword: return fc.boolean();
+    case K.NullKeyword: return fc.constant(null);
+    case K.UndefinedKeyword: return fc.constant(undefined);
+    case K.ParenthesizedType: return arb(t.type);
+    case K.ArrayType: return fc.array(arb(t.elementType), { maxLength: 5 });
+    case K.UnionType: return fc.oneof(...t.types.map(arb));
+    case K.FunctionType: return fc.constant(() => {});
+    case K.LiteralType:
+      if (t.literal.kind === K.TrueKeyword) return fc.constant(true);
+      if (t.literal.kind === K.FalseKeyword) return fc.constant(false);
+      if (t.literal.kind === K.NullKeyword) return fc.constant(null);
+      return fc.constant(ts.isNumericLiteral(t.literal) ? Number(t.literal.text) : t.literal.text);
+    case K.TypeLiteral: {
+      const fields = {};
+      for (const m of t.members) if (m.name && m.type) fields[m.name.getText()] = arb(m.type);
+      return fc.record(fields, { requiredKeys: [] });
+    }
+    case K.TypeReference: {
+      const name = t.typeName.getText();
+      if (name === 'Array' && t.typeArguments) return fc.array(arb(t.typeArguments[0]), { maxLength: 5 });
+      return fc.constant(stub(name)); // interfaces, classes, vscode types
+    }
+    default: return fc.anything();
+  }
+}
+
+function paramArbs(node) {
+  return node.parameters.map((p) => {
+    const name = p.name.getText();
+    const type = p.type ? p.type.getText() : 'any';
+    // keep time values small, waiting a long time isn't a bug
+    let a = /delay|timeout|wait|interval|^ms$/i.test(name) && type === 'number' ? fc.integer({ min: 0, max: 200 }) : arb(p.type);
+    if (p.dotDotDotToken) a = fc.array(a, { maxLength: 3 });
+    else if (p.questionToken || p.initializer) a = fc.option(a, { nil: undefined });
+    return { name, type, arb: a, rest: !!p.dotDotDotToken };
+  });
+}
+
+const spread = (params, args) => params.flatMap((p, i) => (p.rest ? args[i] : [args[i]]));
+
+// runtime errors count as bugs, but not errors thrown on purpose or caused by a fake object
+function isBug(e) {
+  if (!(e instanceof TypeError || e instanceof RangeError || e instanceof ReferenceError || e instanceof SyntaxError)) return false;
+  const msg = String(e.message);
+  if (/Received function |\)\.then is not a function/.test(msg)) return false;
+  return ![...stubbedModules].some((m) => msg.includes(m + '.'));
+}
+
+function show(v) {
+  if (stubs.has(v)) return '<vscode object>';
+  if (typeof v === 'function') return '<function>';
+  try { return fc.stringify(v).slice(0, 200); } catch (e) { return String(v); }
+}
+
+module.exports = { fc, parse, findFunctions, loadFile, getCallable, paramArbs, spread, isBug, show, exit };

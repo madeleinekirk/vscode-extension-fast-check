@@ -1,10 +1,10 @@
-// Loads a TypeScript file outside VS Code.
+// load ts files outside of vscode
 
 const fs = require('fs');
 const Module = require('module');
 const ts = require('typescript');
 
-// Stand-in for vscode and for packages that are not installed
+// fake object for vscode and missing packages
 const stubs = new WeakSet();
 const stubbedModules = new Set();
 function stub(name) {
@@ -24,7 +24,7 @@ function stub(name) {
   return s;
 }
 
-// Code under test must not change files or run commands
+// don't let tested code write files or run commands
 const changesFiles = /^(write|append|mkdir|rm|unlink|rename|copy|cp|symlink|link|chmod|chown|truncate|utimes|createWriteStream)/;
 const safeFs = { ...fs, promises: { ...fs.promises } };
 for (const key of Object.keys(fs)) {
@@ -58,14 +58,16 @@ Module._load = function (request) {
   }
 };
 
-// Compile .ts files when they are required
+// compile .ts files on require
+let target = null;
+let extraCode = '';
 require.extensions['.ts'] = require.extensions['.tsx'] = (module, filename) => {
   const js = ts.transpileModule(fs.readFileSync(filename, 'utf8'), {
     fileName: filename,
     compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020, esModuleInterop: true,
       experimentalDecorators: true, jsx: ts.JsxEmit.React },
   }).outputText;
-  module._compile(js, filename);
+  module._compile(filename === target ? js + extraCode : js, filename);
 };
 
 for (const name of ['suite', 'test', 'describe', 'it', 'before', 'after', 'beforeEach', 'afterEach',
@@ -78,9 +80,55 @@ process.exit = (code) => { throw new Error(`process.exit(${code}) called`); };
 process.on('uncaughtException', () => {});
 process.on('unhandledRejection', () => {});
 
-function loadFile(file) {
+const K = ts.SyntaxKind;
+const has = (node, kind) => (node.modifiers || []).some((m) => m.kind === kind);
+
+function parse(file) {
+  return ts.createSourceFile(file, fs.readFileSync(file, 'utf8'), ts.ScriptTarget.Latest, true);
+}
+
+function findFunctions(source) {
+  const funcs = [];
+  for (const s of source.statements) {
+    const exported = has(s, K.ExportKeyword);
+    if (ts.isFunctionDeclaration(s) && s.name && s.body) {
+      funcs.push({ name: s.name.text, ref: s.name.text, node: s, exported });
+    } else if (ts.isVariableStatement(s)) {
+      for (const d of s.declarationList.declarations) {
+        if (ts.isIdentifier(d.name) && d.initializer && (ts.isArrowFunction(d.initializer) || ts.isFunctionExpression(d.initializer))) {
+          funcs.push({ name: d.name.text, ref: d.name.text, node: d.initializer, exported });
+        }
+      }
+    } else if (ts.isClassDeclaration(s) && s.name) {
+      for (const m of s.members) {
+        if (ts.isMethodDeclaration(m) && m.body && ts.isIdentifier(m.name) && !has(m, K.PrivateKeyword)) {
+          funcs.push({ name: `${s.name.text}.${m.name.text}`, ref: s.name.text, method: m.name.text,
+            isStatic: has(m, K.StaticKeyword), node: m, exported });
+        }
+      }
+    }
+  }
+  return funcs;
+}
+
+// export every function too so non-exported ones can be called
+function loadFile(file, funcs) {
+  target = file;
+  extraCode = '\n' + [...new Set(funcs.map((f) => f.ref))]
+    .map((ref) => `try { exports.__fc_${ref} = ${ref}; } catch (e) {}`).join('\n');
   delete require.cache[file];
   return require(file);
 }
 
-module.exports = { ts, stub, stubs, stubbedModules, loadFile, exit };
+function getCallable(mod, f) {
+  const value = mod['__fc_' + f.ref];
+  if (!value) return null;
+  if (!f.method) return typeof value === 'function' ? { fn: value, self: undefined } : null;
+  if (f.isStatic) return typeof value[f.method] === 'function' ? { fn: value[f.method], self: value } : null;
+  if (!value.prototype || typeof value.prototype[f.method] !== 'function') return null;
+  let self;
+  try { self = new value(); } catch (e) { self = Object.create(value.prototype); }
+  return { fn: self[f.method], self };
+}
+
+module.exports = { ts, K, has, stub, stubs, stubbedModules, parse, findFunctions, loadFile, getCallable, exit };

@@ -496,6 +496,9 @@ async function testFile(file, opts) {
     }
   });
 
+  // Tell the driver which function is running, so a synchronous hang can be attributed to it.
+  if (opts.onTesting) opts.onTesting({ functionName: c.name, line: c.line, expected,
+    params: params.map((p) => ({ name: p.name, type: p.type || 'untyped', rest: p.rest, optional: p.optional })) });
   const started = Date.now();
   const res = await fc.check(prop, { numRuns: c.params.length ? opts.numRuns : 1, endOnFailure: true, seed: 42 });
   const result = {
@@ -536,6 +539,7 @@ async function main() {
   for (let i = opts.start; i < files.length; i++) {
     const rel = path.join(opts.repoName, path.relative(opts.repoDir, files[i]));
     write({ event: 'start', index: i, total: files.length, file: rel });
+    opts.onTesting = (info) => write({ event: 'testing', index: i, file: rel, ...info });
     let r;
     try {
       r = await testFile(files[i], opts);

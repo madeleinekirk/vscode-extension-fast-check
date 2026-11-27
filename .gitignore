@@ -22,3 +22,4 @@ results/raw/
 .env
 .env.*
 .DS_Store
+.vscode/

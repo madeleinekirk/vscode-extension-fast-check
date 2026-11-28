@@ -36,9 +36,11 @@ def run_file(path, repo_dir, num_runs):
         out = e.stdout.decode() if isinstance(e.stdout, bytes) else (e.stdout or "")
     for line in out.splitlines():
         try:
-            lines.append(json.loads(line))
+            obj = json.loads(line)
         except json.JSONDecodeError:
-            pass
+            continue
+        if isinstance(obj, dict):
+            lines.append(obj)
     return lines
 
 

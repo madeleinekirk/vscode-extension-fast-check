@@ -34,3 +34,30 @@ Files where nothing could be tested aren't in the CSV.
 - ErrorMessage: first line of the error, only for failed tests
 - FailureCategory: why it failed (null/undefined access, invalid input not handled, stack overflow, hang, ...)
 - InputParamater: name and type of the parameter, plus the failing input for failed tests. One row per parameter.
+
+## Results
+
+Run on all 199 runnable repos: 6457 files had a function that could be tested (10704 rows in the CSV).
+4433 passed and 2024 failed.
+
+| Failure category | Files |
+|---|---|
+| Null/undefined access | 1275 |
+| Hang | 263 |
+| TypeError | 254 |
+| ReferenceError | 150 |
+| Invalid input not handled | 63 |
+| RangeError | 14 |
+| Stack overflow | 5 |
+
+Hangs are 177 promises that didn't settle in 2 seconds and 86 files that hit the 60 second limit.
+308 of the failures are in the repos' own test files. A lot of the null/undefined failures come from
+the fake vscode object, for example reading `globalState` or a config value that isn't there.
+
+Some failures caused by the generated input:
+- almenon-arepl-vscode `ToAREPLLogic.scanForUnsafeKeywords`: text `"x#bD"` gives an invalid regular expression
+- amir9480-vscode-laravel-extra-intellisense `EloquentProvider.getModelClass`: model name `"o~jG1ip?*"` gives an
+  invalid regular expression because the name is put in a regex without escaping it
+- atlassian-atlascode `formatDate`: date `"x$Z"` throws RangeError: Invalid time value
+- dongli0x00-python-preview `SocketStream.writeInt32`: `-2` throws RangeError because the value is out of range
+- almenon-arepl-vscode `wrapLineWithFunc`: a short string causes a stack overflow
